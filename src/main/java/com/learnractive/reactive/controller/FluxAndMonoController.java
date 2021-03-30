@@ -13,7 +13,7 @@ import java.time.Duration;
 @RequestMapping("api/")
 public class FluxAndMonoController {
     @GetMapping(value = "/flux")
-    public ResponseEntity<Object> returnFlux(){
+    public ResponseEntity<Flux<Integer>> returnFlux(){
         return ResponseEntity.ok().body(Flux.just(1,2,3,4)
                 .delayElements(Duration.ofSeconds(1))
                 .log());
